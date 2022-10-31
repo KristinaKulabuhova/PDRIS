@@ -1,0 +1,11 @@
+- name: My first play
+  hosts: virtualmachines
+  tasks:
+   - name: Print all available facts
+     ansible.builtin.debug:
+      var: ansible_facts
+   - name: Ping my hosts
+     ansible.builtin.ping:
+   - name: Print message
+     ansible.builtin.debug:
+       msg: Hello world
