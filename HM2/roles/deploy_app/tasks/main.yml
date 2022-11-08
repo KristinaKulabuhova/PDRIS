@@ -1,0 +1,11 @@
+---
+- name: Deploy application docker container
+  docker_container:
+    image: application:latest
+    name: my_app
+    state: started
+    auto_remove: true
+    links:
+      - redis:redis
+    ports:
+      - "8000:5000"

@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Build docker image
+      include_role:
+        name: docker_build_image
+    - name: Deploy redis
+      include_role:
+        name: deploy_redis
+    - name: Deploy app
+      include_role:
+        name: deploy_app

@@ -1,0 +1,19 @@
+---
+- name: Pull application
+  ansible.builtin.git:
+    repo: 'https://github.com/KristinaKulabuhova/Ansible'
+    dest: ./application
+- name: Install dependencies
+  pip:
+    name: docker
+- name: build container image
+  docker_image:
+    name: 'application:latest'
+    build:
+      path: ./application
+    source: build
+    state: present
+- name: Cleanup
+  file:
+    path: ./application
+    state: absent

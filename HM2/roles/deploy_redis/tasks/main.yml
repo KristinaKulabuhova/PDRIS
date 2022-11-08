@@ -1,0 +1,7 @@
+---
+- name: Deploy redis docker container
+  docker_container:
+    image: redis:alpine
+    name: redis
+    state: started
+    auto_remove: true
