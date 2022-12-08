@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tarantool
+  labels:
+    name: tarantool
+spec:
+  containers:
+  - name: tarantool
+    image: tarantool/tarantool:2.6.0
+    resources:
+      limits:
+        cpu: "1"
+        memory: "2Gi"
+      requests:
+        memory: "512Mi"
+        cpu: "0.5"
+    ports:
+    - containerPort: 3301
